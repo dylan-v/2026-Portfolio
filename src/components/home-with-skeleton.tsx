@@ -4,13 +4,14 @@ import * as React from "react";
 import type { WorkItem } from "@/data/portfolio";
 import { usePreloadImages } from "@/hooks/use-preload-images";
 import { HomeSkeleton } from "@/components/skeletons/home-skeleton";
+import { asset } from "@/lib/utils";
 
 function getWorkImageUrls(work: WorkItem[]): string[] {
   const urls: string[] = [];
   work.forEach((item) => {
-    if (item.image) urls.push(item.image);
-    if (item.image2) urls.push(item.image2);
-    if (item.company?.icon) urls.push(item.company.icon);
+    if (item.image) urls.push(asset(item.image));
+    if (item.image2) urls.push(asset(item.image2));
+    if (item.company?.icon) urls.push(asset(item.company.icon));
   });
   return urls;
 }

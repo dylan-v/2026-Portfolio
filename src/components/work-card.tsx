@@ -2,6 +2,7 @@ import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import type { WorkItem } from "@/data/portfolio";
+import { asset } from "@/lib/utils";
 
 type WorkCardProps = {
   item: WorkItem;
@@ -24,7 +25,7 @@ function ImagePlaceholder({
   className,
   frame,
 }: { className?: string; frame?: "mobile" | "ai" } = {}) {
-  const src = frame ? PLACEHOLDER_FRAMES[frame] : null;
+  const src = frame ? asset(PLACEHOLDER_FRAMES[frame]) : null;
   if (src) {
     return (
       <img
@@ -56,6 +57,7 @@ function CardImage({
   imageClassName?: string;
 }) {
   const isSvg = src.endsWith(".svg");
+  const resolvedSrc = asset(src);
   return (
     <Link
       href={href}
@@ -64,14 +66,14 @@ function CardImage({
       {isSvg ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
-          src={src}
+          src={resolvedSrc}
           alt=""
           className={`w-full h-auto block ${imageClassName ?? "rounded-[24px]"}`}
           draggable={false}
         />
       ) : (
         <Image
-          src={src}
+          src={resolvedSrc}
           alt=""
           fill
           className={`object-contain ${imageClassName ?? ""}`}
@@ -142,7 +144,7 @@ export function WorkCard({ item }: WorkCardProps) {
               <span className="inline-flex items-center gap-1.5">
                 {item.company.icon ? (
                   <Image
-                    src={item.company.icon}
+                    src={asset(item.company.icon)}
                     alt=""
                     width={16}
                     height={16}

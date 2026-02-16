@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { site, navLinks } from "@/data/portfolio";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { asset } from "@/lib/utils";
 
 /** Inline company icon; uses image when icon src provided, else placeholder. */
 function CompanyIcon({ name, icon }: { name: string; icon: string | null }) {
@@ -9,7 +10,7 @@ function CompanyIcon({ name, icon }: { name: string; icon: string | null }) {
   if (icon) {
     return (
       <Image
-        src={icon}
+        src={asset(icon)}
         alt=""
         width={16}
         height={16}
@@ -123,7 +124,7 @@ export function RoleBlurb({ variant = "default" }: { variant?: "default" | "abou
       <div className="flex shrink-0 flex-col sm:w-56">
         {site.avatar ? (
           <Image
-            src={site.avatar}
+            src={asset(site.avatar)}
             alt=""
             width={68}
             height={68}
@@ -216,7 +217,7 @@ export function SiteHeader({ variant = "full" }: SiteHeaderProps) {
           aria-label={site.navName}
         >
           <img
-            src="/Home.svg"
+            src={asset("/Home.svg")}
             alt=""
             width={36}
             height={36}

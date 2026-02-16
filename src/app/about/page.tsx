@@ -4,6 +4,7 @@ import { SiteHeader, RoleBlurb } from "@/components/site-header";
 import { Separator } from "@/components/ui/separator";
 import { FAQAccordion } from "@/components/faq-accordion";
 import { aboutData } from "@/data/about";
+import { asset } from "@/lib/utils";
 
 export default function AboutPage() {
   const { experience, capabilities, approach, faqs, contactSection, contact } = aboutData;
@@ -60,7 +61,7 @@ export default function AboutPage() {
                   <div className="flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:items-center sm:gap-2">
                     {item.icon ? (
                       <Image
-                        src={item.icon}
+                        src={asset(item.icon)}
                         alt=""
                         width={24}
                         height={24}

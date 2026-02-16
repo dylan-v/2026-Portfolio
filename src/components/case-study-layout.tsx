@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Tweet } from "react-tweet";
 import type { CaseStudy } from "@/data/case-studies";
 import { Separator } from "@/components/ui/separator";
+import { asset } from "@/lib/utils";
 import "react-tweet/theme.css";
 
 /** Same glass card look as work list cards, but no link and no hover/transition (for article hero). */
@@ -71,14 +72,14 @@ export function CaseStudyLayout({ caseStudy, slug }: CaseStudyLayoutProps) {
             {heroImage.endsWith(".svg") ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
-                src={heroImage}
+                src={asset(heroImage)}
                 alt=""
                 className={`w-full h-auto block select-none ${isFinanceSuperapp ? "rounded-none" : "rounded-[24px]"}`}
                 draggable={false}
               />
             ) : (
               <Image
-                src={heroImage}
+                src={asset(heroImage)}
                 alt=""
                 width={1920}
                 height={1273}
@@ -100,7 +101,7 @@ export function CaseStudyLayout({ caseStudy, slug }: CaseStudyLayoutProps) {
         {introImage && (
           <div className="mt-6 flex justify-center">
             <Image
-              src={introImage}
+              src={asset(introImage)}
               alt=""
               width={1200}
               height={800}
