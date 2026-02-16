@@ -117,17 +117,16 @@
     color: black;
   }
   .link-underline {
-    @apply relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:bg-current after:opacity-40 after:transition-opacity after:duration-200 hover:after:opacity-100 dark:after:opacity-100 dark:hover:after:opacity-60;
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:bg-current after:opacity-40 after:transition-opacity after:duration-200 hover:after:opacity-100 dark:after:opacity-40 dark:hover:after:opacity-100;
   }
   .link-underline-dotted {
-    @apply relative inline-block after:absolute after:bottom-0 after:left-0 after:block after:h-0 after:w-full after:border-b-2 after:border-dotted after:border-current after:opacity-40 after:transition-opacity after:duration-200 hover:after:opacity-100 dark:after:opacity-100 dark:hover:after:opacity-60;
+    @apply relative inline-block after:absolute after:bottom-0 after:left-0 after:block after:h-0 after:w-full after:border-b-2 after:border-dotted after:border-current after:opacity-40 after:transition-opacity after:duration-200 hover:after:opacity-100 dark:after:opacity-40 dark:hover:after:opacity-100;
   }
-  /* Nav links: dark mode underline slightly transparent when not hovered */
   .link-underline-dotted-nav {
-    @apply relative after:absolute after:bottom-0 after:left-0 after:block after:h-0 after:w-full after:border-b-2 after:border-dotted after:border-current after:opacity-40 after:transition-opacity after:duration-200 hover:after:opacity-100 dark:after:opacity-75 dark:hover:after:opacity-60;
+    @apply relative after:absolute after:bottom-0 after:left-0 after:block after:h-0 after:w-full after:border-b-2 after:border-dotted after:border-current after:opacity-40 after:transition-opacity after:duration-200 hover:after:opacity-100 dark:after:opacity-40 dark:hover:after:opacity-100;
   }
   .link-underline-dotted-offset {
-    @apply relative after:absolute after:-bottom-1 after:left-0 after:block after:h-0 after:w-full after:border-b-2 after:border-dotted after:border-current after:opacity-40 after:transition-opacity after:duration-200 hover:after:opacity-100 dark:after:opacity-100 dark:hover:after:opacity-60;
+    @apply relative after:absolute after:-bottom-1 after:left-0 after:block after:h-0 after:w-full after:border-b-2 after:border-dotted after:border-current after:opacity-40 after:transition-opacity after:duration-200 hover:after:opacity-100 dark:after:opacity-40 dark:hover:after:opacity-100;
   }
   /* Header blurb: underline only on hover, in both light and dark */
   .link-underline-dotted-hover-only {
@@ -135,7 +134,7 @@
   }
   /* Case study / work card titles: dotted underline, width = text only, close to text */
   .link-underline-dotted-title {
-    @apply relative after:pointer-events-none after:absolute after:-bottom-0.5 after:left-0 after:block after:h-0 after:w-full after:border-b-2 after:border-dotted after:border-current after:opacity-40 after:transition-opacity after:duration-200 hover:after:opacity-100 dark:after:opacity-100 dark:hover:after:opacity-60;
+    @apply relative after:pointer-events-none after:absolute after:-bottom-0.5 after:left-0 after:block after:h-0 after:w-full after:border-b-2 after:border-dotted after:border-current after:opacity-40 after:transition-opacity after:duration-200 hover:after:opacity-100 dark:after:opacity-40 dark:hover:after:opacity-100;
   }
   .link-underline-dotted-title::after {
     transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
