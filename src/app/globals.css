@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 20% 97%; /* #F9F7F6 */
+    --foreground: 0 0% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 30 16% 81%; /* #D7CDC6 placeholder images */
+    --muted-foreground: 240 4% 38%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+  }
+  /* Disable transitions during theme toggle so light/dark flip is instant */
+  .theme-switching,
+  .theme-switching *,
+  .theme-switching *::before,
+  .theme-switching *::after {
+    transition: none !important;
+  }
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+  }
+}
+
+@layer base {
+  html {
+    scrollbar-gutter: stable;
+  }
+  nextjs-portal {
+    position: fixed !important;
+    inset: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    pointer-events: none !important;
+  }
+  nextjs-portal > * {
+    pointer-events: auto;
+  }
+  * {
+    @apply border-border;
+  }
+  /* Video embed: 1px stroke on the iframe (breaker color); wrapper has no outline */
+  .case-study-video-embed {
+    outline: 0 !important;
+  }
+  .case-study-video-embed iframe {
+    border: none !important;
+    outline: none !important;
+  }
+  /* Inner stroke on our container so it covers part of the iframe within our control */
+  .case-study-video-embed__stroke {
+    box-shadow: inset 0 0 0 4px rgb(226 232 240 / 0.5);
+  }
+  .dark .case-study-video-embed__stroke {
+    box-shadow: inset 0 0 0 4px rgb(51 65 85 / 0.4);
+  }
+  body {
+    @apply bg-background text-foreground font-normal antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  img {
+    -webkit-user-drag: none;
+    user-drag: none;
+    user-select: none;
+  }
+}
+
+@layer components {
+  .headline-blurb {
+    font-family: var(--font-inter-display), "Inter Display Placeholder", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 74px;
+    line-height: 96px;
+    color: black;
+  }
+  .headline-blurb a {
+    color: black;
+  }
+  .link-underline {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:bg-current after:opacity-40 after:transition-opacity after:duration-200 hover:after:opacity-100 dark:after:opacity-100 dark:hover:after:opacity-60;
+  }
+  .link-underline-dotted {
+    @apply relative inline-block after:absolute after:bottom-0 after:left-0 after:block after:h-0 after:w-full after:border-b-2 after:border-dotted after:border-current after:opacity-40 after:transition-opacity after:duration-200 hover:after:opacity-100 dark:after:opacity-100 dark:hover:after:opacity-60;
+  }
+  /* Nav links: dark mode underline slightly transparent when not hovered */
+  .link-underline-dotted-nav {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:block after:h-0 after:w-full after:border-b-2 after:border-dotted after:border-current after:opacity-40 after:transition-opacity after:duration-200 hover:after:opacity-100 dark:after:opacity-75 dark:hover:after:opacity-60;
+  }
+  .link-underline-dotted-offset {
+    @apply relative after:absolute after:-bottom-1 after:left-0 after:block after:h-0 after:w-full after:border-b-2 after:border-dotted after:border-current after:opacity-40 after:transition-opacity after:duration-200 hover:after:opacity-100 dark:after:opacity-100 dark:hover:after:opacity-60;
+  }
+  /* Header blurb: underline only on hover, in both light and dark */
+  .link-underline-dotted-hover-only {
+    @apply relative after:absolute after:bottom-0 after:left-0 after:block after:h-0 after:w-full after:border-b-2 after:border-dotted after:border-current after:opacity-0 after:transition-opacity after:duration-200 hover:after:opacity-100;
+  }
+  /* Case study / work card titles: dotted underline, width = text only, close to text */
+  .link-underline-dotted-title {
+    @apply relative after:pointer-events-none after:absolute after:-bottom-0.5 after:left-0 after:block after:h-0 after:w-full after:border-b-2 after:border-dotted after:border-current after:opacity-40 after:transition-opacity after:duration-200 hover:after:opacity-100 dark:after:opacity-100 dark:hover:after:opacity-60;
+  }
+  .link-underline-dotted-title::after {
+    transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+  }
+}
