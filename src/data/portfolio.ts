@@ -88,7 +88,7 @@ export const work: WorkItem[] = [
     company: { name: "Rippling", icon: "/icons/rippling.png" },
     href: "/work/travel",
     description:
-      "End-to-end design for corporate travel—booking, policy, and expense. Shipped the 0→1 experience and scaled patterns so teams could manage travel in one place.",
+      "Built and launched Travel 0 → 1, from internal alpha to GA, capturing the largest category of company spend. Sole designer across admin, approver, and traveler experiences on web and mobile.",
     imagePlaceholders: 1,
     image: "/TravelMobileFrame.svg",
   },

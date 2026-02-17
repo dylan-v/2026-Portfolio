@@ -19,7 +19,7 @@ type CaseStudyLayoutProps = {
 };
 
 export function CaseStudyLayout({ caseStudy, slug }: CaseStudyLayoutProps) {
-  const { title, intro, heroImage, introImage, embedTweetId, embedVideoUrl, sections } = caseStudy;
+  const { title, intro, heroImage, introImage, embedTweetId, embedVideoUrl, videoCaption, videoCaptionUrl, sections } = caseStudy;
   const isFinanceSuperapp = slug === "finance-superapp";
 
   return (
@@ -49,22 +49,43 @@ export function CaseStudyLayout({ caseStudy, slug }: CaseStudyLayoutProps) {
           .
         </p>
 
+        <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
+          {intro.split(/\n\n+/).map((paragraph, i) => (
+            <p key={i}>{paragraph.trim()}</p>
+          ))}
+        </div>
+
         {embedVideoUrl ? (
-          <div className="case-study-video-embed mt-6 w-full overflow-hidden bg-[#F2EEEB] dark:bg-white/5">
-            <div className="case-study-video-embed__stroke relative w-full">
-              <iframe
-                src={
-                  embedVideoUrl.includes("wistia")
-                    ? `${embedVideoUrl}${embedVideoUrl.includes("?") ? "&" : "?"}playerColor=2d2d2d&playPauseControl=false&settingsControl=false&ccButton=false&captionsControl=false&captions-control=false&roundedPlayer=0`
-                    : embedVideoUrl
-                }
-                title="Hero video"
-                className="aspect-video w-full min-h-[320px]"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
+          <>
+            <div className="case-study-video-embed mt-6 w-full overflow-hidden bg-[#F2EEEB] dark:bg-white/5">
+              <div className="case-study-video-embed__stroke relative w-full">
+                <iframe
+                  src={
+                    embedVideoUrl.includes("wistia")
+                      ? `${embedVideoUrl}${embedVideoUrl.includes("?") ? "&" : "?"}playerColor=2d2d2d&playPauseControl=false&settingsControl=false&ccButton=false&captionsControl=false&captions-control=false&roundedPlayer=0`
+                      : embedVideoUrl
+                  }
+                  title="Hero video"
+                  className="aspect-video w-full min-h-[320px]"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
             </div>
-          </div>
+            {videoCaption && videoCaptionUrl ? (
+              <p className="mt-3 text-base text-muted-foreground leading-relaxed">
+                <Link
+                  href={videoCaptionUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-underline-dotted inline-flex items-center gap-1"
+                >
+                  {videoCaption}
+                  <span aria-hidden>↗</span>
+                </Link>
+              </p>
+            ) : null}
+          </>
         ) : heroImage ? (
           <div
             className={`mt-6 w-full ${articleHeroCardClass} ${isFinanceSuperapp ? "flex flex-col items-end justify-end p-8 pb-0 pr-0 w-fit max-w-full" : "p-8"}`}
@@ -91,12 +112,6 @@ export function CaseStudyLayout({ caseStudy, slug }: CaseStudyLayoutProps) {
             )}
           </div>
         ) : null}
-
-        <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
-          {intro.split(/\n\n+/).map((paragraph, i) => (
-            <p key={i}>{paragraph.trim()}</p>
-          ))}
-        </div>
 
         {introImage && (
           <div className="mt-6 flex justify-center">

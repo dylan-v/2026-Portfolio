@@ -23,6 +23,9 @@ export type CaseStudy = {
   embedTweetId?: string;
   /** Optional video embed URL (iframe src). Use for product/demo videos. */
   embedVideoUrl?: string;
+  /** Optional caption link shown below the video (e.g. product page). */
+  videoCaption?: string;
+  videoCaptionUrl?: string;
   meta: CaseStudyMeta;
   sections: CaseStudySection[];
 };
@@ -184,14 +187,30 @@ const explorations: CaseStudy = {
 const travel: CaseStudy = {
   title: "Travel",
   intro:
-    "Corporate travel—booking, policy, and expense—designed as a single experience. Led the end-to-end design for Rippling Travel from concept to launch.",
+    "Rippling Finance set out to expand its footprint as the system of record for company spend. Travel represents one of the largest categories of discretionary spend for growing businesses, and capturing that transaction volume inside the platform was critical to competing upmarket. When I joined, Travel did not exist. One of the largest categories of company spend lived outside Rippling, which meant less visibility for finance teams and a weaker position in competitive deals against Ramp, Brex, and Navan.",
   embedVideoUrl: "https://fast.wistia.net/embed/iframe/21xtyppq6a",
+  videoCaption: "Spend less time and money on business travel",
+  videoCaptionUrl: "https://www.rippling.com/products/finance/travel",
   meta: {},
   sections: [
     {
-      heading: "Overview",
+      heading: "My Role",
       body: [
-        "Placeholder: Add your approach, key decisions, and outcomes for the Travel project.",
+        "I was the sole designer responsible for building Travel from zero to one across admin policy configuration, approval workflows, and traveler booking on web and mobile. Over roughly twelve months, including a six-month internal alpha and beta, we developed a fully integrated travel product spanning flights, hotels, and car rentals. Travel was built as core infrastructure inside Rippling Finance, with policies, approvals, and transactions embedded directly into the broader financial system.",
+      ],
+    },
+    {
+      heading: "Rollout Strategy",
+      body: [
+        "Before GA, we ran an eight-month internal alpha and beta where Rippling employees used Travel as the company's exclusive travel solution. We built in public through a company-wide Slack channel (500+ people), creating a daily feedback loop across engineering, product, finance, and operations. Travel is a real-world product. When something breaks, it breaks at an airport or hotel check-in desk. That meant long hours, rapid iteration, and constant back-and-forth to resolve issues in live scenarios.",
+        "As adoption grew, we stood up a dedicated 24/7 travel support function to handle real-time issues and offload pressure from the product team. The bar for GA was simple: Travel had to work reliably under real conditions before we would release it externally.",
+      ],
+    },
+    {
+      heading: "The Outcome",
+      body: [
+        "Travel launched GA approximately one year after inception, generating meaningful revenue in its first month and driving hundreds of cross-sell opportunities. Shortly after GA, flight bookings reached 320+ per month and hotel stays scaled to nearly 200 per month as adoption accelerated. Travel now contributes roughly $1M in ARR and plays a material role in competitive evaluations.",
+        "We are continuing to expand the product to capture larger-scale spend, including hotel room blocks, multi-traveler hotel bookings, and group travel. These investments are designed to further increase both flight and hotel booking volume while strengthening Travel as a long-term growth lever inside Rippling Finance.",
       ],
     },
   ],
