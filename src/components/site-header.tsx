@@ -105,14 +105,10 @@ function RoleDescription() {
 const aboutBlurb = (
   <>
     <p className="text-base leading-relaxed text-muted-foreground">
-      I focus on the intersection of form and function to create experiences
-      that effortlessly become an extension of oneself. I believe in ideas over
-      opinions, prototypes as the most valuable tool for collaboration, and
-      exploring one hundred ideas to find the right one.
+      I operate at the intersection of business, systems, and craft to drive growth for fintech and enterprise software businesses.
     </p>
     <p className="text-base leading-relaxed text-muted-foreground">
-      I am driven by curiosity and strive for a high level of craftsmanship
-      and excellence in my work.
+      A generalist across design and frontend, I&apos;m drawn to messy, high-stakes problems without clear answers. I prototype my way to conviction, share what I&apos;m learning early and often, and ship work that helps people do their jobs better.
     </p>
   </>
 );
