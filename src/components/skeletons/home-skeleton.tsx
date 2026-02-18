@@ -19,7 +19,7 @@ export function HomeSkeleton({ cardCount = 5 }: HomeSkeletonProps) {
         {/* RoleBlurb shape: avatar + lines */}
         <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:gap-8">
           <div className="flex shrink-0 flex-col sm:w-56">
-            <Skeleton className="size-[45px] shrink-0 rounded-full sm:size-[54px]" />
+            <Skeleton className="size-[72px] shrink-0 rounded-full sm:size-[120px]" />
           </div>
           <div className="min-w-0 max-w-xl flex-1 space-y-2 sm:pt-0.5">
             <Skeleton className="h-5 w-full max-w-[85%]" />

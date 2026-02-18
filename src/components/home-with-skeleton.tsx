@@ -6,6 +6,8 @@ import { usePreloadImages } from "@/hooks/use-preload-images";
 import { HomeSkeleton } from "@/components/skeletons/home-skeleton";
 import { asset } from "@/lib/utils";
 
+const SESSION_KEY = "portfolio-home-images-loaded";
+
 function getWorkImageUrls(work: WorkItem[]): string[] {
   const urls: string[] = [];
   work.forEach((item) => {
@@ -24,8 +26,30 @@ type HomeWithSkeletonProps = {
 export function HomeWithSkeleton({ work, children }: HomeWithSkeletonProps) {
   const urls = React.useMemo(() => getWorkImageUrls(work), [work]);
   const allLoaded = usePreloadImages(urls);
+  const [hasShownOnce, setHasShownOnce] = React.useState(false);
 
-  if (!allLoaded) {
+  React.useEffect(() => {
+    try {
+      if (sessionStorage.getItem(SESSION_KEY) === "1") setHasShownOnce(true);
+    } catch {
+      // ignore
+    }
+  }, []);
+
+  React.useEffect(() => {
+    if (allLoaded) {
+      setHasShownOnce(true);
+      try {
+        sessionStorage.setItem(SESSION_KEY, "1");
+      } catch {
+        // ignore
+      }
+    }
+  }, [allLoaded]);
+
+  const showContent = allLoaded || hasShownOnce;
+
+  if (!showContent) {
     return <HomeSkeleton cardCount={work.length} />;
   }
 

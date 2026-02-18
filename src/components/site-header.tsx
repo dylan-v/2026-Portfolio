@@ -126,14 +126,14 @@ export function RoleBlurb({ variant = "default" }: { variant?: "default" | "abou
           <Image
             src={asset(site.avatar)}
             alt=""
-            width={68}
-            height={68}
-            className="size-[45px] shrink-0 select-none rounded-full object-cover sm:size-[54px]"
+            width={120}
+            height={120}
+            className="size-[72px] shrink-0 select-none rounded-full object-cover sm:size-[120px]"
             draggable={false}
           />
         ) : (
           <div
-            className="flex size-[45px] shrink-0 items-center justify-center rounded-full bg-muted text-base font-medium text-muted-foreground sm:size-[54px]"
+            className="flex size-[72px] shrink-0 items-center justify-center rounded-full bg-muted text-base font-medium text-muted-foreground sm:size-[120px]"
             aria-hidden
           >
             {site.avatarInitials}

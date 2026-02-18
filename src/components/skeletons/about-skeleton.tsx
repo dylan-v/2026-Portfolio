@@ -12,7 +12,7 @@ export function AboutSkeleton() {
       <div className="mx-auto max-w-4xl px-5 pb-10 pt-0 sm:px-6 sm:pb-12 sm:pt-0">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:gap-8">
           <div className="flex shrink-0 flex-col sm:w-56">
-            <Skeleton className="size-[45px] shrink-0 rounded-full sm:size-[54px]" />
+            <Skeleton className="size-[72px] shrink-0 rounded-full sm:size-[120px]" />
           </div>
           <div className="min-w-0 max-w-xl flex-1 space-y-4 sm:pt-0.5">
             <Skeleton className="h-5 w-full" />

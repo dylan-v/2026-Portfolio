@@ -58,6 +58,7 @@
 @layer base {
   html {
     scrollbar-gutter: stable;
+    overflow-y: scroll;
   }
   nextjs-portal {
     position: fixed !important;
