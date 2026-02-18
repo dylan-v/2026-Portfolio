@@ -124,7 +124,7 @@ export function RoleBlurb({ variant = "default" }: { variant?: "default" | "abou
       <div className="flex shrink-0 flex-col sm:w-56">
         {site.avatar ? (
           <Image
-            src={asset(site.avatar)}
+            src={`${asset(site.avatar)}?v=2`}
             alt=""
             width={120}
             height={120}
